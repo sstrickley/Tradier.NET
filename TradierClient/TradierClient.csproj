@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31B1D0FC-B728-4793-8E63-D090EF472606}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TradierClient</RootNamespace>
+    <AssemblyName>TradierClient</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountData\Balances\AccountBalancesRequest.cs" />
+    <Compile Include="AccountData\Balances\AccountBalancesResponse.cs" />
+    <Compile Include="AccountData\CostBasis\AccountCostBasisRequest.cs" />
+    <Compile Include="AccountData\CostBasis\AccountCostBasisResponse.cs" />
+    <Compile Include="AccountData\History\AccountHistoryRequest.cs" />
+    <Compile Include="AccountData\History\AccountHistoryResponse.cs" />
+    <Compile Include="AccountData\OrderStatus\SpecificOrderDetailsRequest.cs" />
+    <Compile Include="AccountData\OrderStatus\SpecificOrderDetailsResponse.cs" />
+    <Compile Include="AccountData\Orders\AccountOrdersRequest.cs" />
+    <Compile Include="AccountData\Orders\AccountOrdersResponse.cs" />
+    <Compile Include="AccountData\Positions\AccountPositionsRequest.cs" />
+    <Compile Include="AccountData\Positions\PositionsResponse.cs" />
+    <Compile Include="Authentication\AccessToken.cs" />
+    <Compile Include="Authentication\AccessTokenRequest.cs" />
+    <Compile Include="Common\BaseFormEncodedPostRequest.cs" />
+    <Compile Include="Common\BaseGetRequest.cs" />
+    <Compile Include="Common\Enums\DateTimeFormats.cs" />
+    <Compile Include="Common\Enums\Endpoints.cs" />
+    <Compile Include="Common\IRequest.cs" />
+    <Compile Include="Common\PropertyConverters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserData\UserBalances\AcctBase.cs" />
+    <Compile Include="UserData\UserBalances\Cash.cs" />
+    <Compile Include="UserData\UserBalances\PDT.cs" />
+    <Compile Include="UserData\UserOrders\AccountOrders.cs" />
+    <Compile Include="UserData\UserOrders\Order.cs" />
+    <Compile Include="UserData\UserBalances\Balance.cs" />
+    <Compile Include="UserData\UserBalances\BalancesRequest.cs" />
+    <Compile Include="UserData\UserBalances\Margin.cs" />
+    <Compile Include="UserData\UserBalances\UserBalances.cs" />
+    <Compile Include="UserData\UserBalances\BalancesResponse.cs" />
+    <Compile Include="UserData\UserCostBasis\ClosedPositionDetails.cs" />
+    <Compile Include="UserData\UserCostBasis\CostBasisAccount.cs" />
+    <Compile Include="UserData\UserCostBasis\GainLoss.cs" />
+    <Compile Include="UserData\UserCostBasis\UserCostBasisRequest.cs" />
+    <Compile Include="UserData\UserCostBasis\UserCostBasisResponse.cs" />
+    <Compile Include="UserData\UserHistory\AccountHistory.cs" />
+    <Compile Include="UserData\UserHistory\AccountHistoryRequest.cs" />
+    <Compile Include="UserData\UserHistory\AccountHistoryResponse.cs" />
+    <Compile Include="UserData\UserHistory\History.cs" />
+    <Compile Include="UserData\UserHistory\HistoryEvent.cs" />
+    <Compile Include="UserData\UserHistory\TradeDetails.cs" />
+    <Compile Include="UserData\UserOrders\Orders.cs" />
+    <Compile Include="UserData\UserOrders\UserOrdersRequest.cs" />
+    <Compile Include="UserData\UserOrders\UserOrdersResponse.cs" />
+    <Compile Include="UserData\UserPositions\AccountPositions.cs" />
+    <Compile Include="UserData\UserPositions\PositionItem.cs" />
+    <Compile Include="UserData\UserPositions\PositionResponse.cs" />
+    <Compile Include="UserData\UserPositions\PositionArray.cs" />
+    <Compile Include="UserData\UserPositions\PositionsRequest.cs" />
+    <Compile Include="UserData\UserProfile\Account.cs" />
+    <Compile Include="UserData\UserProfile\ProfileResponse.cs" />
+    <Compile Include="UserData\UserProfile\ProfileRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
