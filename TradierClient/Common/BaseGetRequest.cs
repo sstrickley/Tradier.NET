@@ -19,6 +19,11 @@
             _accessToken = accessToken;
         }
 
+        public void SetPath(string baseString, params string[] args)
+        {
+            SetPath(string.Format(baseString, args));
+        }
+
         public void SetPath(string path)
         {
             _path = path;

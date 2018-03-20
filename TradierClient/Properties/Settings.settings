@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="PathToToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Steve\Documents\Personal\StockTrader\AccessToken.json</Value>
+      <Value Profile="(Default)">C:\StockTrader\AccessToken.json</Value>
     </Setting>
   </Settings>
 </SettingsFile>

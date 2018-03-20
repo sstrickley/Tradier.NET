@@ -4,7 +4,7 @@
     {
         public AccountOrdersRequest(AccessToken token, Account account) : base(token.access_token, Endpoints.Request)
         {
-            SetPath(string.Format("accounts/{0}/orders", account.AccountNumber));
+            SetPath("accounts/{0}/orders", account.AccountNumber);
         }
     }
 }

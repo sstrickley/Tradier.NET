@@ -27,7 +27,9 @@ namespace TradierClientUI
                 //AccountDataTests.GetAccountHistory(_accessToken, _account);
                 //AccountDataTests.GetAccountCostBasis(_accessToken, _account);
                 //AccountDataTests.GetAccountOrders(_accessToken, _account);
-                AccountDataTests.GetSpecificOrderDetails(_accessToken, _account, "123");
+                //AccountDataTests.GetSpecificOrderDetails(_accessToken, _account, "123");
+
+                TradeTests.TestPreviewOrder(_accessToken, _account);
             }
             catch(HttpRequestException hre)
             {

@@ -67,6 +67,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Trading\CreateOrder\CreateOrderRequest.cs" />
+    <Compile Include="Trading\CreateOrder\CreateOrderResponse.cs" />
+    <Compile Include="Trading\OrderForm\IOrderForm.cs" />
+    <Compile Include="Trading\OrderForm\OrderClass.cs" />
+    <Compile Include="Trading\OrderForm\OrderDuration.cs" />
+    <Compile Include="Trading\OrderForm\OrderForm.cs" />
+    <Compile Include="Trading\OrderForm\OrderSide.cs" />
+    <Compile Include="Trading\OrderForm\OrderType.cs" />
+    <Compile Include="Trading\PreviewOrder\PreviewRequest.cs" />
+    <Compile Include="Trading\PreviewOrder\PreviewResponse.cs" />
     <Compile Include="UserData\UserBalances\AcctBase.cs" />
     <Compile Include="UserData\UserBalances\Cash.cs" />
     <Compile Include="UserData\UserBalances\PDT.cs" />

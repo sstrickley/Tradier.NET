@@ -45,6 +45,7 @@
     <Compile Include="AccountDataTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TradeTests.cs" />
     <Compile Include="UserDataTests.cs" />
   </ItemGroup>
   <ItemGroup>
