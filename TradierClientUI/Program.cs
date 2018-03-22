@@ -29,7 +29,11 @@ namespace TradierClientUI
                 //AccountDataTests.GetAccountOrders(_accessToken, _account);
                 //AccountDataTests.GetSpecificOrderDetails(_accessToken, _account, "123");
 
-                TradeTests.TestPreviewOrder(_accessToken, _account);
+                // --------- THESE TESTS WILL CREATE A REAL ORDER! BE CAREFUL!! --------- //
+                //TradeTests.TestPreviewOrder(_accessToken, _account);
+                //TradeTests.TestCreateOrder();
+                //TradeTests.TestChangeOrder();
+                //TradeTests.TestCancelOrder();
             }
             catch(HttpRequestException hre)
             {

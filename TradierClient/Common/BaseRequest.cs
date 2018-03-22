@@ -52,6 +52,8 @@
         {
             if (message.IsSuccessStatusCode)
                 return await DeserializeResponse(message);
+            else if (message.ReasonPhrase.ToUpper() == "BAD REQUEST")
+                throw new HttpRequestException(string.Format("Bad Request!! Reason {0}", await GetResponseAsString(message)));
             else
                 throw new HttpRequestException(string.Format("HTTP Request failed Path!  Reason: {0}", message.ReasonPhrase));
         }
@@ -60,10 +62,18 @@
         {
             using (StreamReader reader = new StreamReader(await message.Content.ReadAsStreamAsync()))
             {
-                //Console.WriteLine(reader.ReadToEnd());
+                // Console.WriteLine(reader.ReadToEnd());
 
                 XmlSerializer ser = new XmlSerializer(typeof(TResponse));
                 return (TResponse)ser.Deserialize(reader);
+            }
+        }
+
+        private async Task<string> GetResponseAsString(HttpResponseMessage message)
+        {
+            using (StreamReader reader = new StreamReader(await message.Content.ReadAsStreamAsync()))
+            {
+                return await reader.ReadToEndAsync();
             }
         }
     }
