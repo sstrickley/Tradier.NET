@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.UserData
 {
-    public class ProfileRequest : BaseGetRequest<ProfileResponse>
+    public class ProfileRequest : GetRequest<ProfileResponse>
     {
-        public ProfileRequest(AccessToken token) : base(token.access_token, Endpoints.Request)
+        public ProfileRequest(AccessToken token) : base(token, Endpoints.Request)
         {
             SetPath("user/profile");
         }

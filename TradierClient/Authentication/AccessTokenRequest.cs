@@ -5,12 +5,12 @@
     using System.Web.Script.Serialization;
     using TradierClient.Properties;
 
-    public class AccessTokenRequest : IRequest<AccessToken>
+    public class AccessTokenRequest : BaseRequest<AccessToken>
     { 
-        public AccessTokenRequest()
+        public AccessTokenRequest() : base()
         { }
 
-        public async Task<AccessToken> SendRequestAsync()
+        public override async Task<AccessToken> SendRequestAsync()
         {
             using (StreamReader reader = File.OpenText(Settings.Default.PathToToken))
             {

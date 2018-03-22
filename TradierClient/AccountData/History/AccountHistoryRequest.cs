@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.AccountData
 {
-    public class AccountHistoryRequest : BaseGetRequest<AccountHistoryResponse>
+    public class AccountHistoryRequest : GetRequest<AccountHistoryResponse>
     {
-        public AccountHistoryRequest(AccessToken token, Account account) : base(token.access_token, Endpoints.Request)
+        public AccountHistoryRequest(AccessToken token, Account account) : base(token, Endpoints.Request)
         {
             SetPath("accounts/{0}/history", account.AccountNumber);
         }

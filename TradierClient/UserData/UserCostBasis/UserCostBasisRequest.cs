@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.UserData
 {
-    public class UserCostBasisRequest : BaseGetRequest<UserCostBasisResponse>
+    public class UserCostBasisRequest : GetRequest<UserCostBasisResponse>
     {
-        public UserCostBasisRequest(AccessToken token) : base(token.access_token, Endpoints.Request)
+        public UserCostBasisRequest(AccessToken token) : base(token, Endpoints.Request)
         {
             SetPath("user/gainloss");
         }

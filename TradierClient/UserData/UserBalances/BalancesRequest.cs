@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.UserData
 {
-    public class BalancesRequest : BaseGetRequest<BalancesResponse>
+    public class BalancesRequest : GetRequest<BalancesResponse>
     {
-        public BalancesRequest(AccessToken token) : base(token.access_token, Endpoints.Request)
+        public BalancesRequest(AccessToken token) : base(token, Endpoints.Request)
         {
             SetPath("user/balances");
         }

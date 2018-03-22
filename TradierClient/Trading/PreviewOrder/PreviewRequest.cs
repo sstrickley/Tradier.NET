@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.Trading
 {
-    public class PreviewRequest : BaseFormEncodedPostRequest<PreviewResponse>
+    public class PreviewRequest : FormEncodedPostRequest<PreviewResponse>
     {
-        public PreviewRequest(AccessToken token, Account account, IOrderForm orderForm) : base(token.access_token, Endpoints.Request)
+        public PreviewRequest(AccessToken token, Account account, IOrderForm orderForm) : base(token, Endpoints.Request)
         {
             SetPath("accounts/{0}/orders", account.AccountNumber);
             AddPostParams(orderForm.GetPostParameters());

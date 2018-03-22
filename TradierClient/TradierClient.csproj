@@ -55,11 +55,14 @@
     <Compile Include="AccountData\Positions\PositionsResponse.cs" />
     <Compile Include="Authentication\AccessToken.cs" />
     <Compile Include="Authentication\AccessTokenRequest.cs" />
-    <Compile Include="Common\BaseFormEncodedPostRequest.cs" />
-    <Compile Include="Common\BaseGetRequest.cs" />
+    <Compile Include="Common\DeleteRequest.cs" />
+    <Compile Include="Common\FormEncodedPostRequest.cs" />
+    <Compile Include="Common\BaseFormEncodedRequest.cs" />
+    <Compile Include="Common\GetRequest.cs" />
+    <Compile Include="Common\BaseRequest.cs" />
     <Compile Include="Common\Enums\DateTimeFormats.cs" />
     <Compile Include="Common\Enums\Endpoints.cs" />
-    <Compile Include="Common\IRequest.cs" />
+    <Compile Include="Common\FormEncodedPutRequest.cs" />
     <Compile Include="Common\PropertyConverters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -67,8 +70,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Trading\CancelOrder\CancelOrderRequest.cs" />
+    <Compile Include="Trading\ChangeOrder\ChangeOrderRequest.cs" />
     <Compile Include="Trading\CreateOrder\CreateOrderRequest.cs" />
-    <Compile Include="Trading\CreateOrder\CreateOrderResponse.cs" />
+    <Compile Include="Trading\OrderStatusResponse.cs" />
     <Compile Include="Trading\OrderForm\IOrderForm.cs" />
     <Compile Include="Trading\OrderForm\OrderClass.cs" />
     <Compile Include="Trading\OrderForm\OrderDuration.cs" />

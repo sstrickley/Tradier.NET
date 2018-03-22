@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.UserData
 {
-    public class PositionsRequest : BaseGetRequest<PositionResponse>
+    public class PositionsRequest : GetRequest<PositionResponse>
     {
-        public PositionsRequest(AccessToken token) : base(token.access_token, Endpoints.Request)
+        public PositionsRequest(AccessToken token) : base(token, Endpoints.Request)
         {
             SetPath("user/positions");
         }

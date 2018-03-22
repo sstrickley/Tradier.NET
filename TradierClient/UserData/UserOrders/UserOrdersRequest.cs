@@ -1,8 +1,8 @@
 ﻿namespace TradierClient.UserData
 {
-    public class UserOrdersRequest : BaseGetRequest<UserOrdersResponse>
+    public class UserOrdersRequest : GetRequest<UserOrdersResponse>
     {
-        public UserOrdersRequest(AccessToken token) : base(token.access_token, Endpoints.Request)
+        public UserOrdersRequest(AccessToken token) : base(token, Endpoints.Request)
         {
             SetPath("user/orders");
         }

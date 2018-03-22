@@ -3,7 +3,7 @@
     using System.Xml.Serialization;
 
     [XmlRootAttribute("order")]
-    public class CreateOrderResponse
+    public class OrderStatusResponse
     {
         [XmlElement("id")]
         public int OrderID { get; set; }

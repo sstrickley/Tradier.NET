@@ -9,7 +9,7 @@
         public string Id { get; set; }
 
         [XmlElement("type")]
-        public string limit { get; set; }
+        public string Type { get; set; }
 
         [XmlElement("symbol")]
         public string Symbol { get; set; }
