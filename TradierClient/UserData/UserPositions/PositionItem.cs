@@ -14,7 +14,7 @@
         [XmlIgnore]
         public DateTime DateAcquired
         {
-            get { return PropertyConverters.ParseDateTime(_dateAcquired, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_dateAcquired, DateTimeFormats.DateHmsmz); }
         }
 
         [XmlElement("id")]

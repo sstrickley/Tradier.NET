@@ -11,7 +11,7 @@
         [XmlIgnore]
         public DateTime CloseDate
         {
-            get { return PropertyConverters.ParseDateTime(_closeDate, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_closeDate, DateTimeFormats.DateHmsmz); }
         }
 
         [XmlElement("cost")]
@@ -47,7 +47,7 @@
         [XmlIgnore]
         public DateTime OpenDate
         {
-            get { return PropertyConverters.ParseDateTime(_openDate, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_openDate, DateTimeFormats.DateHmsmz); }
         }
 
         [XmlElement("proceeds")]

@@ -14,7 +14,7 @@
         [XmlIgnore]
         public DateTime Date
         {
-            get { return PropertyConverters.ParseDateTime(_date, DateTimeFormats.DateHms); }
+            get { return PropertyConverters.ParseDateTime(_date, DateTimeFormats.DateHmsz); }
         }
 
         [XmlElement("type")]

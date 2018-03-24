@@ -35,7 +35,7 @@
         [XmlIgnore]
         public DateTime LastUpdateDate
         {
-            get { return PropertyConverters.ParseDateTime(_lastUpdateDate, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_lastUpdateDate, DateTimeFormats.DateHmsmz); }
         }
 
     }

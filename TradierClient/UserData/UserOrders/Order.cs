@@ -92,7 +92,7 @@
         [XmlIgnore]
         public DateTime? CreateDate
         {
-            get { return PropertyConverters.ParseDateTime(_createDate, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_createDate, DateTimeFormats.DateHmsmz); }
         }
 
         [XmlElement("transaction_date")]
@@ -101,7 +101,7 @@
         [XmlIgnore]
         public DateTime? TransactionDate
         {
-            get { return PropertyConverters.ParseDateTime(_transDate, DateTimeFormats.DateHmsm); }
+            get { return PropertyConverters.ParseDateTime(_transDate, DateTimeFormats.DateHmsmz); }
         }
 
         [XmlElement("class")]

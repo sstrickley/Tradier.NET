@@ -2,7 +2,8 @@
 {
     public struct DateTimeFormats
     {
-        public static readonly string DateHms = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
-        public static readonly string DateHmsm = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
+        public static readonly string DateHms = "yyyy'-'MM'-'dd'T'HH':'mm':'ss";
+        public static readonly string DateHmsz = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
+        public static readonly string DateHmsmz = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
     }
 }

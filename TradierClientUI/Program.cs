@@ -34,6 +34,11 @@ namespace TradierClientUI
                 //TradeTests.TestCreateOrder();
                 //TradeTests.TestChangeOrder();
                 //TradeTests.TestCancelOrder();
+
+                //MarketDataTests.TestQuotes(_accessToken);
+                //MarketDataTests.TestTimeAndSales(_accessToken);
+                //MarketDataTests.TestOptionChains(_accessToken);
+                MarketDataTests.TestOptionStrikes(_accessToken);
             }
             catch(HttpRequestException hre)
             {
