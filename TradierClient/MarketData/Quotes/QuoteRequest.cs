@@ -13,7 +13,7 @@
         }
 
 
-        public QuoteRequest(AccessToken token, List<string> symbols) : this(token)
+        public QuoteRequest(AccessToken token, IEnumerable<string> symbols) : this(token)
         {
             SetPath("markets/quotes?symbols={0}", string.Join(",", symbols));
         }

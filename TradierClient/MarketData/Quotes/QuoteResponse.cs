@@ -8,5 +8,10 @@
     {
         [XmlElement("quote")]
         public List<Quote> QuoteList { get; set; }
+
+        public QuoteResponse()
+        {
+            QuoteList = new List<Quote>();
+        }
     }
 }

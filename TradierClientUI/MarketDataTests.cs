@@ -50,5 +50,75 @@ namespace TradierClientUI
 
             Console.WriteLine("Request successfull");
         }
+
+        public static void TestOptionExpirationDates(AccessToken token)
+        {
+            OptionExpireRequest request = new OptionExpireRequest(token, "ON");
+            OptionExpireResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestHistoricalPricing(AccessToken token)
+        {
+            HistoricalPricingRequest request = new HistoricalPricingRequest(token, "ON");
+            request.SetPast_Days(30);
+
+            HistoricalPricingResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestIntradayStatus(AccessToken token)
+        {
+            IntradayStatusRequest request = new IntradayStatusRequest(token);
+            IntradayStatusResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestMarketCalendar(AccessToken token)
+        {
+            MarketCalendarRequest request = new MarketCalendarRequest(token);
+            request.SetMonthYear(1, 2018);
+            MarketCalendarResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestCompanySearch(AccessToken token)
+        {
+            CompanySearchRequest request = new CompanySearchRequest(token, "Apple");
+            request.IncludeIndexes();
+            CompanySearchResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestSymbolLookup(AccessToken token)
+        {
+            SymbolLookupRequest request = new SymbolLookupRequest(token);
+            request.SetExchangeCode("F");
+            request.SetExchangeCode("A");
+            request.SetType(SecurityType.stock);
+
+            CompanySearchResponse response = request.SendRequestAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Request successfull");
+        }
+
+        public static void TestStreamingQuotes(AccessToken token)
+        {
+            StreamingQuotesRequest request = new StreamingQuotesRequest(token);
+            request.SetSymbol("ON");
+            request.QuoteReceivedEvent += OnQuoteReceived;
+
+            request.SendRequestAsync().GetAwaiter().GetResult();
+        }
+
+        private static void OnQuoteReceived(object sender, StreamData args)
+        {
+            Console.WriteLine("{0} {1} {2}", args.Type, args.Symbol, args.Price);
+        }
     }
 }

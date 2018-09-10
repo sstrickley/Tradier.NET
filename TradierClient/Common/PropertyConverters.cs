@@ -47,7 +47,7 @@
                     CultureInfo.InvariantCulture);
         }
 
-        public static DateTime? ParseUnixTime(string input)
+        public static DateTime? ParseUnixTimeMS(string input)
         {
             double? ms = PropertyConverters.ParseDouble(input);
 
@@ -56,6 +56,22 @@
 
             return new DateTime(1970, 1, 1, 0, 0, 0).
                 AddMilliseconds((double)ms); 
+        }
+
+        public static DateTime? ParseUnixTimeSec(string input)
+        {
+            double? sec = PropertyConverters.ParseDouble(input);
+
+            if (sec == null)
+                return null;
+
+            return new DateTime(1970, 1, 1).
+                AddSeconds((double)sec);
+        }
+
+        public static T ParseEnum<T>(string input)
+        {
+            return (T)Enum.Parse(typeof(T), input);
         }
     }
 }

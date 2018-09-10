@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.8.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -56,6 +59,7 @@
     <Compile Include="Authentication\AccessToken.cs" />
     <Compile Include="Authentication\AccessTokenRequest.cs" />
     <Compile Include="Common\DeleteRequest.cs" />
+    <Compile Include="Common\Enums\Exchange.cs" />
     <Compile Include="Common\ExtensionMethods\Extensions.cs" />
     <Compile Include="Common\FormEncodedPostRequest.cs" />
     <Compile Include="Common\BaseFormEncodedRequest.cs" />
@@ -64,16 +68,38 @@
     <Compile Include="Common\Enums\DateTimeFormats.cs" />
     <Compile Include="Common\Enums\Endpoints.cs" />
     <Compile Include="Common\FormEncodedPutRequest.cs" />
+    <Compile Include="Common\IRequest.cs" />
     <Compile Include="Common\PropertyConverters.cs" />
+    <Compile Include="MarketData\CompanySearch\CompanySearchRequest.cs" />
+    <Compile Include="MarketData\CompanySearch\CompanySearchResponse.cs" />
+    <Compile Include="MarketData\CompanySearch\Security.cs" />
+    <Compile Include="MarketData\CompanySearch\SecurityType.cs" />
+    <Compile Include="MarketData\History\DailyPriceData.cs" />
+    <Compile Include="MarketData\History\HistoricalPricingRequest.cs" />
+    <Compile Include="MarketData\History\HistoricalPricingResponse.cs" />
+    <Compile Include="MarketData\IntradayStatus\IntradayStatusRequest.cs" />
+    <Compile Include="MarketData\IntradayStatus\IntradayStatusResponse.cs" />
+    <Compile Include="MarketData\LookupSymbol\SymbolLookupRequest.cs" />
+    <Compile Include="MarketData\MarketCalendar\MarketCalendarRequest.cs" />
+    <Compile Include="MarketData\MarketCalendar\MarketCalendarResponse.cs" />
+    <Compile Include="MarketData\MarketCalendar\MarketDay.cs" />
+    <Compile Include="MarketData\MarketCalendar\MarketHours.cs" />
+    <Compile Include="MarketData\MarketCalendar\MarketStatus.cs" />
     <Compile Include="MarketData\OptionChains\Option.cs" />
     <Compile Include="MarketData\OptionChains\OptionChainRequest.cs" />
     <Compile Include="MarketData\OptionChains\OptionChainResponse.cs" />
+    <Compile Include="MarketData\OptionExpirations\OptionExpireRequest.cs" />
+    <Compile Include="MarketData\OptionExpirations\OptionExpireResponse.cs" />
     <Compile Include="MarketData\OptionStrikes\OptionStrike.cs" />
     <Compile Include="MarketData\OptionStrikes\OptionStrikeRequest.cs" />
     <Compile Include="MarketData\OptionStrikes\OptionStrikeResponse.cs" />
     <Compile Include="MarketData\Quotes\Quote.cs" />
     <Compile Include="MarketData\Quotes\QuoteRequest.cs" />
     <Compile Include="MarketData\Quotes\QuoteResponse.cs" />
+    <Compile Include="MarketData\StreamingQuotes\SessionRequest.cs" />
+    <Compile Include="MarketData\StreamingQuotes\SessionResponse.cs" />
+    <Compile Include="MarketData\StreamingQuotes\StreamData.cs" />
+    <Compile Include="MarketData\StreamingQuotes\StreamingQuotesRequest.cs" />
     <Compile Include="MarketData\TimeAndSales\SaleData.cs" />
     <Compile Include="MarketData\TimeAndSales\SessionFilter.cs" />
     <Compile Include="MarketData\TimeAndSales\TimeAndSalesInterval.cs" />
@@ -97,6 +123,14 @@
     <Compile Include="Trading\OrderForm\OrderType.cs" />
     <Compile Include="Trading\PreviewOrder\PreviewRequest.cs" />
     <Compile Include="Trading\PreviewOrder\PreviewResponse.cs" />
+    <Compile Include="Universe\Exchange\CompanyInfo.cs" />
+    <Compile Include="Universe\Exchange\ExchangeRequest.cs" />
+    <Compile Include="Universe\Exchange\ExchangeResponse.cs" />
+    <Compile Include="Universe\Index\Constituent.cs" />
+    <Compile Include="Universe\Index\Index.cs" />
+    <Compile Include="Universe\Index\IndexEndpoints.cs" />
+    <Compile Include="Universe\Index\IndexRequest.cs" />
+    <Compile Include="Universe\Index\IndexResponse.cs" />
     <Compile Include="UserData\UserBalances\AcctBase.cs" />
     <Compile Include="UserData\UserBalances\Cash.cs" />
     <Compile Include="UserData\UserBalances\PDT.cs" />
@@ -132,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,5 +1,7 @@
 ﻿namespace TradierClient
 {
+    using System;
+    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
 
@@ -8,13 +10,31 @@
         public GetRequest(AccessToken token, string ept) : base(token, ept)
         { }
 
+        public GetRequest(string ept) : base(ept)
+        { }
+
+        public string GetFormatedParams()
+        {
+            return string.Join("&", Parameters
+                    .Select(k => string.Format("{0}={1}", k.Key, k.Value)));
+        }
+
         public override async Task<TResponse> SendRequestAsync()
         {
             using(HttpClient client = new HttpClient())
             {
-                InitializeHttpClient(client);
-                HttpResponseMessage message = await client.GetAsync(GetPath());
-                return await ProcessResponseMessage(message);
+                try
+                {
+                    InitializeHttpClient(client);
+                    HttpResponseMessage message = await client.GetAsync(GetPath()).ConfigureAwait(false);
+                    return await ProcessResponseMessage(message);
+                }
+                catch(Exception e)
+                {
+                    System.Console.WriteLine(e.Message);
+                    throw e;
+                }
+                
             }            
         }  
     }

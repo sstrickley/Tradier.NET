@@ -1,22 +1,32 @@
 ﻿namespace TradierClient
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
 
-    public abstract class BaseRequest<TResponse>
+    public abstract class BaseRequest<TResponse> : IRequest<TResponse>
     {
-        private Uri _baseUri;
+        protected Uri _baseUri;
         private string _accessToken;
         private string _path;
 
-        public BaseRequest()
-        { }
+        public Dictionary<string, string> Parameters { get; set; }
 
-        public BaseRequest(AccessToken token, string endPoint)
+        public BaseRequest()
+        {
+            Parameters = new Dictionary<string, string>();
+        }
+
+        public BaseRequest(string endPoint) : this()
+        {
+            _baseUri = new Uri(endPoint);
+        }
+
+        public BaseRequest(AccessToken token, string endPoint) : this()
         {
             _baseUri = new Uri(endPoint);
             _accessToken = token.access_token;
@@ -39,7 +49,7 @@
 
         public abstract Task<TResponse> SendRequestAsync();
 
-        protected void InitializeHttpClient(HttpClient client)
+        protected virtual void InitializeHttpClient(HttpClient client)
         {
             client.BaseAddress = _baseUri;
             client.Timeout = new TimeSpan(0, 1, 0);
@@ -48,7 +58,7 @@
             client.DefaultRequestHeaders.Add("Authorization", string.Format("Bearer {0}", _accessToken));
         }
 
-        protected async Task<TResponse> ProcessResponseMessage(HttpResponseMessage message)
+        protected virtual async Task<TResponse> ProcessResponseMessage(HttpResponseMessage message)
         {
             if (message.IsSuccessStatusCode)
                 return await DeserializeResponse(message);
@@ -58,7 +68,7 @@
                 throw new HttpRequestException(string.Format("HTTP Request failed Path!  Reason: {0}", message.ReasonPhrase));
         }
 
-        private async Task<TResponse> DeserializeResponse(HttpResponseMessage message)
+        protected virtual async Task<TResponse> DeserializeResponse(HttpResponseMessage message)
         {
             using (StreamReader reader = new StreamReader(await message.Content.ReadAsStreamAsync()))
             {

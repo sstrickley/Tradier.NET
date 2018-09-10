@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using TradierClient;
 
 namespace TradierClientUI
@@ -38,7 +39,22 @@ namespace TradierClientUI
                 //MarketDataTests.TestQuotes(_accessToken);
                 //MarketDataTests.TestTimeAndSales(_accessToken);
                 //MarketDataTests.TestOptionChains(_accessToken);
-                MarketDataTests.TestOptionStrikes(_accessToken);
+                //MarketDataTests.TestOptionStrikes(_accessToken);
+                //MarketDataTests.TestOptionExpirationDates(_accessToken);
+                //MarketDataTests.TestHistoricalPricing(_accessToken);
+                //MarketDataTests.TestIntradayStatus(_accessToken);
+                //MarketDataTests.TestMarketCalendar(_accessToken);
+                //MarketDataTests.TestCompanySearch(_accessToken);
+                //MarketDataTests.TestSymbolLookup(_accessToken);
+                //MarketDataTests.TestStreamingQuotes(_accessToken);
+
+                //UniverseTests.TestLoadNYSE();
+                //UniverseTests.TestLoadNasdaq();
+                //UniverseTests.LoadSP500();
+                UniverseTests.LoadSP400();
+         
+
+                Console.ReadLine();
             }
             catch(HttpRequestException hre)
             {
