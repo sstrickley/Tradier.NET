@@ -21,6 +21,8 @@
 
         public override async Task<TResponse> SendRequestAsync()
         {
+            await RequestManager.I.Throttle();
+
             using(HttpClient client = new HttpClient())
             {
                 try

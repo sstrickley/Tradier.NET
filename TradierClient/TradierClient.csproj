@@ -70,6 +70,7 @@
     <Compile Include="Common\FormEncodedPutRequest.cs" />
     <Compile Include="Common\IRequest.cs" />
     <Compile Include="Common\PropertyConverters.cs" />
+    <Compile Include="Common\RequestManager.cs" />
     <Compile Include="MarketData\CompanySearch\CompanySearchRequest.cs" />
     <Compile Include="MarketData\CompanySearch\CompanySearchResponse.cs" />
     <Compile Include="MarketData\CompanySearch\Security.cs" />

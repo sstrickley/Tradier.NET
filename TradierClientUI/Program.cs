@@ -50,7 +50,7 @@ namespace TradierClientUI
 
                 //UniverseTests.TestLoadNYSE();
                 //UniverseTests.TestLoadNasdaq();
-                //UniverseTests.LoadSP500();
+                UniverseTests.LoadSP500();
                 UniverseTests.LoadSP400();
          
 

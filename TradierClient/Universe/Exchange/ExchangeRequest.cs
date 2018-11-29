@@ -23,8 +23,11 @@
             client.BaseAddress = _baseUri;
             client.Timeout = new TimeSpan(0, 1, 0);
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/html"));
-            client.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+            client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+            client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip,deflate,br");
+            client.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.5");
+            client.DefaultRequestHeaders.Add("Connection", "keep-alive");
+            
         }
 
         public override async Task<ExchangeResponse> SendRequestAsync()
@@ -43,6 +46,8 @@
 
         private ExchangeResponse DeserializeCsv(StreamReader reader)
         {
+            var header = reader.ReadLine();
+
             var response = new ExchangeResponse();
             response.Date = DateTime.Today;
          

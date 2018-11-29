@@ -32,11 +32,8 @@ namespace TradierClient.Universe
 
         private void LoadConstituents(HtmlDocument doc)
         {
-            _response.Constituents = doc.DocumentNode.Descendants("table")
-                .Where(a => a.Descendants("tr")
-                    .FirstOrDefault()?.Descendants("th")
-                    .FirstOrDefault()?.InnerText.ToUpper() == "TICKER SYMBOL")
-                .FirstOrDefault()?.Descendants("tr")
+            _response.Constituents = GetTable(doc)?
+                .Descendants("tr")
                 .Skip(1)
                 .Select(a => a.Descendants("td"))
                     .Select(b => new Constituent
@@ -47,6 +44,22 @@ namespace TradierClient.Universe
                         SubSector = b.Skip(4).FirstOrDefault()?.InnerText
                     })
                 .ToList();
+        }
+
+        private HtmlNode GetTable(HtmlDocument doc)
+        {
+            return doc.DocumentNode.Descendants("table")
+                .Where(a => 
+                    a.Descendants("tr").Count() > 0 &&
+                    a.Descendants("tr")
+                    .First()
+                    .Descendants("th").Count() > 0 &&
+                    a.Descendants("tr")
+                    .First()
+                    .Descendants("th")
+                        .First()
+                        .InnerText.ToUpper().Contains("SYMBOL"))
+                .FirstOrDefault();
         }
 
     }
